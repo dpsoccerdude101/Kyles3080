@@ -17,7 +17,10 @@
     if (response.ok) {
       const responseJSON = await response.json();
       console.dir(responseJSON.response);
-      if (responseJSON.response == `Hi, the item is not available`)
+      if (
+        responseJSON.response == `Hi, the item is not available` ||
+        responseJSON.response == `Error querying Bestbuy's API.`
+      )
         elem.innerText = "No, the item is not in stock yet.";
       else {
         clearInterval(repeatRun);
